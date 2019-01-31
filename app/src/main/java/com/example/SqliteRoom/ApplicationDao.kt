@@ -7,7 +7,6 @@ interface ApplicationDao {
     @Query("SELECT * FROM application")
     fun getAll(): List<Application>
 
-
     @Query("SELECT * FROM application WHERE app_name LIKE :appName LIMIT 1")
     fun findByAppName(appName: String): Application?
 
@@ -19,4 +18,5 @@ interface ApplicationDao {
 
     @Delete
     fun delete(app: Application)
+
 }

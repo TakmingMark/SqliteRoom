@@ -15,15 +15,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //初始化
         appDatabase= AppDatabase.getInstance(this)
 
+        //得到之前放在database的值
         applications =getAll()
 
+        //如果不存在就新增
         for (packageName in packageNames)
             if(!isExistApplication(packageName))
                 insert(packageName)
 
         update(packageNames[0])
+
         delete(packageNames[3])
 
         applications =getAll()
